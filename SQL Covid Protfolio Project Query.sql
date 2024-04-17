@@ -111,7 +111,7 @@ Join PortfolioProject..CovidVaccinations vac
 where dea.continent is not null
 order by 2,3
 
---USE CTE
+-- Using CTE to perform Calculation on Partition By in previous query
 
 WITH PopvsVac (continent, location, date, population, new_vaccinations, RollingPeopleVaccinated) AS
 (
@@ -140,7 +140,7 @@ FROM PopvsVac;
 
 
 
---TEMP Table
+--Using Temp Table to perform Calculation on Partition By in previous query
 
 INSERT INTO #PercentPopulationVaccinated
 SELECT 
@@ -164,7 +164,7 @@ SELECT
 FROM 
     #PercentPopulationVaccinated
 
-
+--Creating View to store data for later visualizations
 
 
 CREATE VIEW PercentPopulationVaccinated AS
